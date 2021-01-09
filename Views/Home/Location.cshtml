@@ -1,0 +1,18 @@
+﻿@model RobotWars
+
+@{
+    ViewData["Title"] = "Robot Wars";
+}
+<div class="text-center">
+    <h1 class="display-4">Robot Wars</h1>
+    <br /><br /><br /><br />
+
+    <h2>For the entry:</h2>
+
+    <p>Initial Position: @Model.InitialPosition</p>
+    <p>Movement Instructions: @Model.MovementInstructions</p>
+
+    <h2>The results are:</h2>
+    <p>Final Position: @Model.FinalPosition</p>
+    <p>Penalty Count: @Model.PenaltyCount</p>
+</div>

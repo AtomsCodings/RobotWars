@@ -1,0 +1,28 @@
+﻿@model RobotWars
+
+@{
+    ViewData["Title"] = "Robot Wars";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Robot Wars</h1>
+
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+    {
+        <br /><br /><br />
+        <p>Initial Position in the format of 0,2,E</p>
+
+        <p style="color:red">@Html.ValidationMessageFor(model => model.InitialPosition)</p>
+        @Html.EditorFor(model => model.InitialPosition)
+
+        <br /><br /><br />
+        <p>Movement Instructions in the format of MLMRMMMRMMRR</p>
+        <p style="color:red">
+            @Html.ValidationMessageFor(model => model.MovementInstructions)
+        </p>
+                @Html.EditorFor(model => model.MovementInstructions)
+
+                <br /><br /><br />
+                <button type="submit">Enter</button>
+    }
+</div>
