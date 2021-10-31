@@ -6,6 +6,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace RobotWars.Models
 {
+    /// <summary>
+    /// RobotWars model class
+    /// </summary>
     public class RobotWars
     {
         [StringLength(5, ErrorMessage = "There is an issue with the Initial Position entry", MinimumLength = 5)]
@@ -16,7 +19,9 @@ namespace RobotWars.Models
         [Display(Name = "Movement Instructions")]
         [Required, StringLength(100)]
         public string MovementInstructions { get; set; }
+
         public string FinalPosition{ get; set; }
+
         public int PenaltyCount { get; set; }
 
     }

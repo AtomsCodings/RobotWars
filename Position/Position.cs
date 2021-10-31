@@ -7,8 +7,14 @@ using System.Threading.Tasks;
 
 namespace RobotWars.Position
 {
+    /// <summary>
+    /// Position class
+    /// </summary>
     public class Position : Models.Position, IPosition 
     {
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public Position()
         {
             X = Y = 0;
@@ -16,6 +22,9 @@ namespace RobotWars.Position
             penalty = 0;
         }
 
+        /// <summary>
+        /// Rotate 90 degrees left
+        /// </summary>
         private void Rotate90Left()
         {
             switch (this.Direction)
@@ -37,6 +46,9 @@ namespace RobotWars.Position
             }
         }
 
+        /// <summary>
+        /// Rotate 90 degrees right
+        /// </summary>
         private void Rotate90Right()
         {
             switch (this.Direction)
@@ -58,6 +70,9 @@ namespace RobotWars.Position
             }
         }
 
+        /// <summary>
+        /// Move in same direction
+        /// </summary>
         private void MoveInSameDirection()
         {
             switch (this.Direction)
@@ -79,6 +94,11 @@ namespace RobotWars.Position
             }
         }
 
+        /// <summary>
+        /// Start moving
+        /// </summary>
+        /// <param name="maxPoints"></param>
+        /// <param name="moves"></param>
         public void StartMoving(List<int> maxPoints, string moves)
         {
             int xMaxPoint = maxPoints[0];
@@ -104,6 +124,11 @@ namespace RobotWars.Position
             }
         }
 
+        /// <summary>
+        /// Perform penality calculation
+        /// </summary>
+        /// <param name="xMaxPoint"></param>
+        /// <param name="yMaxPoint"></param>
         public void PenaltyCalc(int xMaxPoint, int yMaxPoint)
         {
             //penality calcaulted if robot is outside of grid boundary
@@ -130,6 +155,5 @@ namespace RobotWars.Position
                 }
             }
         }
-
     }
 }

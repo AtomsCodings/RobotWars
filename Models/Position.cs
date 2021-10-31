@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace RobotWars.Models
 {
+    /// <summary>
+    /// Position model class
+    /// </summary>
     public class Position
     {
         public int X { get; set; }
@@ -14,6 +17,9 @@ namespace RobotWars.Models
         public Directions Direction { get; set; }
     }
 
+    /// <summary>
+    /// Directions enum
+    /// </summary>
     public enum Directions
     {
         N = 1,//North

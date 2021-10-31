@@ -11,20 +11,36 @@ using System.Text.RegularExpressions;
 
 namespace RobotWars.Controllers
 {
+    /// <summary>
+    /// Home Controller class
+    /// </summary>
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
 
+        /// <summary>
+        /// Home controller constructor
+        /// </summary>
+        /// <param name="logger"></param>
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
         }
 
+        /// <summary>
+        /// Index
+        /// </summary>
+        /// <returns>View</returns>
        public IActionResult Index()
        {
             return View();
        }
 
+        /// <summary>
+        /// Index
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns>View - Index or Error</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Index(Models.RobotWars model)
@@ -51,8 +67,9 @@ namespace RobotWars.Controllers
 
                     return Location(model);
                 }
-                catch
+                catch (Exception ex)
                 {
+                    _logger.LogError("There has been an error " + ex);
                     return View("Error");
                 }
             }
@@ -60,20 +77,24 @@ namespace RobotWars.Controllers
             return View("Index", model);
         }
 
-        
+        /// <summary>
+        /// Location
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns>View - Location</returns>
         public IActionResult Location(Models.RobotWars model)
         {
           return View("Location", model);
         }
 
+        /// <summary>
+        /// Privacy
+        /// </summary>
+        /// <returns>View</returns>
         public IActionResult Privacy()
         {
-            return View();
-        }
+            //TODO Requires completion
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
             return View();
         }
     }
